@@ -1,16 +1,45 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 const TodoContext = createContext();
 
-export function TodoProvider(children){ 
+export function TodoProvider({children}){ 
 
+    const initialTodos = [
+        {
+            id: 1,
+            content: "리액트 공부하기",
+            isCompleted: false
+        }, 
+        {
+            id: 2,
+            content: "점심 먹기",
+            isCompleted: true
+        }
+    ]
     
+    const [todos, setTodos] = useState(initialTodos);
 
+    const addTodo = (content)=>{
+
+    }
+    const deleteTodo = (id)=>{
+
+    }
+    const editTodo = (id, content)=>{
+
+    }
+    const toggleTodo = (id)=>{
+
+    }
 
 
 
     const value = {
-
+        addTodo,
+        deleteTodo,
+        editTodo,
+        toggleTodo,
+        todos  
         
     }
 
