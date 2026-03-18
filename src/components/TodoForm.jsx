@@ -1,10 +1,15 @@
-
+import { useTodos } from "../context/TodoContext";
 function TodoForm() {
-
+    const { addTodo } = useTodos();
     const onHandleSubmit = (e)=>{
         e.preventDefault()
-        const content = e.target.content
-        
+        const content = e.target.content.value;
+        if(content.trim() !== ""){
+            addTodo(content)
+            e.target.content.value = ""
+        }else{
+            alert("할 일을 입력해주세요.")
+        }
     }
 
   return (

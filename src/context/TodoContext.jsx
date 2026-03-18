@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useRef, useState } from "react";
 
 const TodoContext = createContext();
 
@@ -18,18 +18,33 @@ export function TodoProvider({children}){
     ]
     
     const [todos, setTodos] = useState(initialTodos);
+    const lastId = useRef(2);
 
     const addTodo = (content)=>{
 
+        const id = lastId.current + 1;
+        lastId.current = id;
+
+        const todo = {
+            id,
+            content,   
+            isCompleted: false
+        }
+        setTodos([...todos, todo]);
     }
     const deleteTodo = (id)=>{
-
+        setTodos(todos.filter(todo => todo.id !== id));
     }
     const editTodo = (id, content)=>{
 
     }
     const toggleTodo = (id)=>{
-
+        setTodos(todos.map(todo => {
+            if(todo.id === id){
+                return {...todo, isCompleted: !todo.isCompleted}
+            }
+            return todo;
+        }))    
     }
 
 

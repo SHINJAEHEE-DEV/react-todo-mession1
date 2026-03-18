@@ -5,9 +5,11 @@ function TodoItem({ todo }) {
     
   return (
     <li>
-      <input type="checkbox" name="todoCheckbox" id={todo.id} checked={todo.isCompleted} />
+      <input type="checkbox" name="todoCheckbox" id={todo.id} checked={todo.isCompleted} 
+      onChange={() => toggleTodo(todo.id)}
+      />
       {todo.content}
-      <button onClick={deleteTodo}>삭제</button>
+      <button onClick={() => deleteTodo(todo.id)}>삭제</button>
     </li>
   )
 }
