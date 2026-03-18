@@ -1,12 +1,20 @@
-import { createContext, useContext, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 const TodoContext = createContext();
 
 export function TodoProvider({children}){ 
 
     
-    const [todos, setTodos] = useState([]);
+    const [todos, setTodos] = useState(() => {
+        const storedTodos = localStorage.getItem('todos');
+        return storedTodos ? JSON.parse(storedTodos) : [];
+    });
     const lastId = useRef(0);
+
+
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }, [todos])
 
     const addTodo = (content)=>{
 
