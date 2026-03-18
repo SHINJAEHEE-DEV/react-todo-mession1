@@ -42,7 +42,6 @@ export function TodoProvider({children}){
 
     }
     const toggleTodo = (id)=>{
-        console.log(id)
         setTodos(todos.map(todo => {
             if(todo.id === id){
                 return {...todo, isCompleted: !todo.isCompleted}
