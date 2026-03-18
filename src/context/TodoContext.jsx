@@ -4,21 +4,9 @@ const TodoContext = createContext();
 
 export function TodoProvider({children}){ 
 
-    const initialTodos = [
-        {
-            id: 1,
-            content: "리액트 공부하기",
-            isCompleted: false
-        }, 
-        {
-            id: 2,
-            content: "점심 먹기",
-            isCompleted: true
-        }
-    ]
     
-    const [todos, setTodos] = useState(initialTodos);
-    const lastId = useRef(2);
+    const [todos, setTodos] = useState([]);
+    const lastId = useRef(0);
 
     const addTodo = (content)=>{
 
@@ -33,10 +21,16 @@ export function TodoProvider({children}){
         setTodos([...todos, todo]);
     }
     const deleteTodo = (id)=>{
-        console.log(id)
         setTodos(todos.filter(todo => todo.id !== id));
     }
     const editTodo = (id, content)=>{
+
+        setTodos(todos.map(todo => {
+            if(todo.id === id){
+                return {...todo, content}
+            }
+            return todo;
+        }));
 
     }
     const toggleTodo = (id)=>{

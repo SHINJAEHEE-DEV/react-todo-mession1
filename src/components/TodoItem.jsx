@@ -1,7 +1,9 @@
-import { useTodos } from "../context/TodoContext"
+import { useState } from "react";
+import { useTodos } from "../context/TodoContext";
 
 function TodoItem({ todo }) {
-    const { deleteTodo, toggleTodo } = useTodos()
+    const { deleteTodo, toggleTodo, editTodo } = useTodos()
+    const [isEditMode, setIsEditMode] = useState(false);
     
   return (
     <li>
@@ -11,7 +13,22 @@ function TodoItem({ todo }) {
         id={todo.id} 
         checked={todo.isCompleted} 
       />
-      <span>{todo.content}</span>
+      {isEditMode ? 
+          <input 
+          type="text" 
+          defaultValue={todo.content} 
+          id={`edit-${todo.id}`}
+          onKeyDown={(e)=>{
+            if(e.key === "Enter"){
+              setIsEditMode(false)  
+              editTodo(todo.id, e.target.value)
+            }
+          }}
+          />
+          :
+          <><span>{todo.content}</span><span onClick={() => setIsEditMode(true)}>✏️</span></>
+          }
+      
       <button 
         onClick={() => deleteTodo(todo.id)}
       >
