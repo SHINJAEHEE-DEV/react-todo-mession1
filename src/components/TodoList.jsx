@@ -6,7 +6,7 @@ function TodoList() {
   return (
     <ul>
         {todos.map(todo => (
-            <li key={todo.id}>{todo.content}</li>
+            <li key={todo.id}>{todo.content}<button>삭제</button></li>
         ))}
     </ul>
   )

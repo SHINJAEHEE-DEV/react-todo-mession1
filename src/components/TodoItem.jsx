@@ -1,7 +1,14 @@
+import { useTodos } from "../context/TodoContext"
 
-function TodoItem() {
+function TodoItem({ todo }) {
+    const { deleteTodo, toggleTodo } = useTodos()
+    
   return (
-    <div>TodoItem</div>
+    <li>
+      <input type="checkbox" name="todoCheckbox" id={todo.id} checked={todo.isCompleted} />
+      {todo.content}
+      <button onClick={deleteTodo}>삭제</button>
+    </li>
   )
 }
 
