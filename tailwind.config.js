@@ -6,10 +6,12 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class', // 클래스 기반 다크모드 지원
   theme: {
     extend: {
-            colors: {
+      colors: {
         primary: 'var(--color-primary)',
+        'delete-button': 'var(--color-delete-button)',
         'app-bg': '#f2f4f6', // 토스 특유의 배경색
         'app-gray': '#e5e8eb',
         'app-text': '#191f28',

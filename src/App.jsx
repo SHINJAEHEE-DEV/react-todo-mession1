@@ -9,7 +9,7 @@ function App() {
     /* 바깥쪽 회색 배경 */
     <div
       className="min-h-screen 
-      bg-app-bg dark:bg-app-bg 
+      bg-app-bg dark:bg-app-dark-bg 
       text-app-text dark:text-app-dark-text
       transition-colors duration-200
       font-sans font-medium"

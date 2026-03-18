@@ -4,7 +4,7 @@ import TodoItem from "./TodoItem"
 function TodoList() {
     const { todos } = useTodos()
   return (
-    <ul>
+    <ul className="w-full pb-10">
         {todos.map(todo => (
             <TodoItem key={todo.id} todo={todo}/>
         ))}
