@@ -33,12 +33,14 @@ export function TodoProvider({children}){
         setTodos([...todos, todo]);
     }
     const deleteTodo = (id)=>{
+        console.log(id)
         setTodos(todos.filter(todo => todo.id !== id));
     }
     const editTodo = (id, content)=>{
 
     }
     const toggleTodo = (id)=>{
+        console.log(id)
         setTodos(todos.map(todo => {
             if(todo.id === id){
                 return {...todo, isCompleted: !todo.isCompleted}
