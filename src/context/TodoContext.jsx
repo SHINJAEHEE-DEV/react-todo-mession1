@@ -9,7 +9,8 @@ export function TodoProvider({children}){
         const storedTodos = localStorage.getItem('todos');
         return storedTodos ? JSON.parse(storedTodos) : [];
     });
-    const lastId = useRef(0);
+    //useRef 사용시 새로고침하면 id가 초기화됨 중복 id가 생길수 있음
+    // const lastId = useRef(0);
 
 
     useEffect(() => {
@@ -18,8 +19,10 @@ export function TodoProvider({children}){
 
     const addTodo = (content)=>{
 
-        const id = lastId.current + 1;
-        lastId.current = id;
+        // const id = lastId.current + 1;
+        // lastId.current = id;
+
+        const id = Date.now();
 
         const todo = {
             id,

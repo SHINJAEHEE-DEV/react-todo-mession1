@@ -4,6 +4,7 @@ import { useTodos } from "../context/TodoContext";
 function TodoItem({ todo }) {
     const { deleteTodo, toggleTodo, editTodo } = useTodos()
     const [isEditMode, setIsEditMode] = useState(false);
+    const [editContent, setEditContent] = useState(todo.content);
     
   return (
     <li className="
@@ -42,12 +43,15 @@ function TodoItem({ todo }) {
             focus:outline-none
             transition-shadow"
           type="text" 
-          defaultValue={todo.content} 
           id={`edit-${todo.id}`}
+          value={editContent}
+          onChange={(e)=>{
+            setEditContent(e.target.value)
+          }}
           onKeyDown={(e)=>{
             if(e.key === "Enter"){
               setIsEditMode(false)  
-              editTodo(todo.id, e.target.value)
+              editTodo(todo.id, editContent)
             }
           }}
           />
@@ -77,7 +81,7 @@ function TodoItem({ todo }) {
         "
         onClick={() => {
           if(isEditMode){
-            editTodo(todo.id, document.getElementById(`edit-${todo.id}`).value)
+            editTodo(todo.id, editContent)
             setIsEditMode(false);
           }else{
             setIsEditMode(true);

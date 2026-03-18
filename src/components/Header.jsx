@@ -67,7 +67,7 @@ function Header() {
       >Todo List _ JaeHee-Dev</h1>
       <div className="flex items-center space-x-3">
            <input 
-            className="w-12 h-12 cursor-pointer border-0 p-0 rounded-ful"
+            className="w-12 h-12 cursor-pointer border-0 p-0 rounded-full"
             type="color" 
             value={primaryColor} 
             onChange={handleColorChange}    
