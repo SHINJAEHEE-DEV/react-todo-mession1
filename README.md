@@ -1,16 +1,56 @@
-# React + Vite
+# 📝 React Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+할 일 목록을 간단하고 직관적으로 관리할 수 있는 Todo 애플리케이션입니다.
+React + Context API + Tailwind CSS v4를 기반으로 구성되었으며,
+localStorage를 통한 데이터 영속성, 커스텀 포인트 컬러 및 다크 모드 지원,
+모듈화된 컴포넌트 설계가 특징입니다.
 
-Currently, two official plugins are available:
+## ✨ 주요 기능
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- ✅ **할 일 추가, 수정, 삭제**
+- 🗂️ **할 일 완료 여부 체크**
+- 🔄 **새로고침에도 유지되는 `localStorage` 기반 데이터 저장**
+- ⚡ **전역 상태 관리를 위한 `Context API` 활용**
+- 🌙 **라이트/다크 모드 부드러운 전환 및 커스텀 컬러 피커 적용**
+- 🎨 **Tailwind CSS v4를 통한 깔끔하고 반응형인 UI 지원**
 
-## React Compiler
+## 📸 페이지 미리보기
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🖼️ **앱 데모 동작 화면**
+![App Demo](./demo.webp)
 
-## Expanding the ESLint configuration
+## ⚙️ 기술 스택
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| 기술 | 설명 |
+| --- | --- |
+| React | UI 라이브러리 |
+| Context API | React 내장 전역 상태 관리 로직 |
+| Tailwind CSS v4 | 유틸리티 기반 CSS 프레임워크 |
+| localStorage | 브라우저 전역 저장소 (데이터 영속성 확보) |
+| Vite | 빠른 개발 서버 및 번들러 (프론트엔드 환경) |
+
+## 📁 프로젝트 구조
+
+```text
+src/
+├── components/         # 재사용 가능한 UI 컴포넌트
+│   ├── Header.jsx
+│   └── TodoItem.jsx
+├── context/            # Context API 전역 상태 관리
+│   └── TodoContext.jsx
+├── index.css           # Tailwind 뼈대 및 글로벌 설정 파일
+├── App.jsx             # 메인 최상단 컴포넌트
+└── main.jsx            # 애플리케이션 엔트리포인트
+```
+
+## 🚀 실행 방법
+
+```bash
+# 패키지 설치
+npm install
+
+# 개발 서버 로컬 실행
+npm run dev
+```
+
+🙋‍♀️ 리뷰 부탁드립니다!
